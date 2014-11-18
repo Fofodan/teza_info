@@ -1,0 +1,37 @@
+//57. Scrieti un program C/C++ care citeste de la tastatura un numar natural nenul n (n<100),
+//apoi n tiruri de caractere, fiecare sir având maximum 30 de caractere, doar litere mici ale
+//alfabetului englez, si afiseaza pe ecran câte dintre cele n siruri de caractere sunt formate
+//numai din vocale. Se considera vocale literele a, e, i, o, u.
+//Exemplu: daca n=3, iar sirurile citite sunt date alaturat, atunci
+//programul va afisa pe ecran 1 deoarece sirul ae este format
+//numai din vocale. (10p.)
+//arc
+//ae
+//creion
+
+#include<iostream>
+#include<string.h>
+using namespace std;
+
+int main()
+{char s[100][30],voc[]="aeiou";
+int n,i,j,fr,nv=0;
+cout<<"n=";
+cin>>n;
+for(i=0;i<n;i++)
+{
+    cout<<"Scrieti cuvantul  = ";
+    cin>>s[i];
+}
+for(i=0;i<n;i++)
+{
+    fr=0;
+    for(j=0;s[i][j];j++)
+        if(strchr(voc,s[i][j]))
+        fr++;
+    if(fr==strlen(s[i]))
+        nv++;
+}
+cout<<nv;
+    return 0;
+}
