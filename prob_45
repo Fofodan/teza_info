@@ -1,0 +1,46 @@
+/*
+ 45. Scrieţi programul C/C++ care citeşte de la tastatură un şir de cel mult 40 de caractere,
+format doar din litere ale alfabetului englez, şi care afişează pe ecran toate şirurile obţinute
+prin eliminarea succesivă a câte unei singure litere din şirul citit, ca în exemplu. Şirurile se
+vor afişa câte unul pe câte o linie a ecranului.
+Exemplu: dacă se citeşte şirul abbc atunci pe ecran se va afişa:
+bbc
+abc
+abc
+abb
+
+
+*/
+#include<iostream>
+#include<string.h>
+#include<fstream>
+using namespace std;
+int este(char s[][20], int n, char cuv[])
+{
+    int i;
+    for(i=0; i<n;i++)
+        if(strcmp(s[i],cuv)==0)
+        return 1;
+        else
+    return 0;
+}
+int main()
+{
+    char s[100][20],cuv[30],sir[50];
+    int n=0,i=0,m=0;
+    cin.getline(cuv,30); cout<<"Cuvantul este: ";
+    m=strlen(cuv);
+    n=0;
+    for(i=0;i<m;i++)
+    {
+        strcpy(sir,cuv);
+        strcpy(sir+i,cuv+i+1);
+        if(este(s,m,sir)==0)
+        {
+            cout<<sir<<endl;
+            strcpy(s[n],sir);
+            n++;
+        }
+    }
+    return 0;
+}
