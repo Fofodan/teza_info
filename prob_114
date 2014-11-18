@@ -1,0 +1,36 @@
+/*
+    114. Scrieţi un program în limbajul C/C++ care citeşte de la tastatură două şiruri, formate fiecare din cel mult 20 de caractere.
+Primul şir reprezintă numele unei persoane, iar al doilea şir reprezintă prenumele aceleiaşi persoane. Atât numele cât şi prenumele sunt formate numai
+din litere ale alfabetului englez şi fiecare conţine cel puţin o consoană. Programul
+construieşte în memorie şi afişează pe ecran un al treilea şir de caractere, care conţine
+consoanele din prenumele citit dispuse în ordinea în care apar în prenume urmate de exact
+un spaţiu şi de numele citit.
+Exemplu: dacă primul şir citit este Popescu, iar al doilea este Vasile
+se va construi şi apoi se va afişa pe ecran şirul
+Vsl Popescu
+
+*/
+#include <iostream>
+#include <fstream>
+#include <string.h>
+#include <math.h>
+using namespace std;
+int main ()
+{
+    char nume[10],pre[10],voc[]="aeiou";
+    int i;
+    cout<<"Prenumele: ";
+    cin.getline(pre,10);
+    cout<<"Numele: ";
+    cin.getline(nume,10);
+    for(i=0;i<strlen(pre);i++)
+    {
+       if(strchr(voc,pre[i]))
+        strcpy(pre+i,pre+i+1);
+
+    }
+    cout<<pre<<" ";
+    cout<<nume<<endl;
+
+    return 0;
+}
