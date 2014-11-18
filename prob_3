@@ -1,0 +1,28 @@
+/*3. Fie s o variabilă ce memorează un şir de caractere, c o variabilă de tip char, iar i şi j două variabile de tip int.
+Scrieţi instrucţiunile ce pot înlocui punctele de suspensie din secvenţa de program alăturată astfel încât executarea ei să
+determine modificarea conţinutul şirului s prin interschimbarea caracterelor aflate pe poziţii simetrice faţă de mijlocul şirului
+(primului caracter cu ultimul, al doilea cu penultimul, etc). (6p.)
+
+*/
+#include <iostream>
+#include <string.h>
+#include <math.h>
+using namespace std;
+main ()
+{
+    char s[100],aux;
+    cin.getline(s,100);
+    int i=0,j;
+    j=strlen(s)-1;
+    while (i<j)
+    {
+    aux=s[i];
+    s[i]=s[j];
+    s[j]=aux;
+    i++;
+    j--;
+    }
+    cout<<s;
+
+	return 0;
+}
