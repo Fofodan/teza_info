@@ -1,0 +1,33 @@
+/*
+    53. Scrieţi programul C/C++ care citeşte de la tastatură un cuvânt s de cel mult 20 litere mici ale alfabetului englez, construieşte în memorie
+şi afişează pe ecran cuvântul s după eliminarea primei şi a ultimei vocale. Cuvântul s conţine cel puţin două vocale şi cel puţin o consoană. Se
+consideră vocale literele: a, e, i, o, u.
+Exemplu: dacă se citeşte cuvântul bacalaureat, pe ecran se afişează: bcalauret
+
+*/
+#include <iostream>
+#include <fstream>
+#include <string.h>
+#include <math.h>
+using namespace std;
+main ()
+{
+    char s[100],*s2;
+    int i,j;
+    cin.getline(s,100);
+    for (i=0;i<strlen(s);i++)
+    {
+         if (strchr("aeiou",s[i])!=NULL)
+            {strcpy(s+i,s+i+1);
+            break;}
+    }
+    for(j=strlen(s)-1;j>0;j--)
+    {
+        if(strchr("aeiou",s[j])!=NULL)
+        {strcpy(s+j,s+j+1);
+        break;}
+    }
+    cout<<s;
+
+    return 0;
+}
