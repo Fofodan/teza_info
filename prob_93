@@ -1,0 +1,35 @@
+/*
+    93. Scrieţi programul C/C++ care citeşte de la tastatură un cuvânt de maximum 20 de litere şi
+minimum o literă şi afişează pe ecran cuvântul citit precum şi toate cuvintele obţinute din
+cuvântul citit prin eliminarea primei şi a ultimei litere. Prima prelucrare se referă la cuvântul
+citit, iar următoarele la cuvântul rezultat din prelucrarea anterioară. Procedeul de eliminare şi
+afişare se va repeta până când se obţine cuvântul vid, ca în exemplu. Cuvântul iniţial şi
+fiecare cuvânt obţinut se va afişa pe câte o linie a ecranului.
+Exemplu: dacă se citeşte cuvântul bacalaureat, se va afişa:
+bacalaureat
+acalaurea
+calaure
+alaur
+lau
+a
+
+*/
+#include <iostream>
+#include <fstream>
+#include <string.h>
+#include <math.h>
+using namespace std;
+main ()
+{
+     char a[100];
+    cin>>a;
+    while(strlen(a)>0)
+  {
+    cout<<a;
+    cout<<endl;
+    strcpy(a,a+1);
+    strcpy(a+strlen(a)-1,a+strlen(a));
+  }
+
+    return 0;
+}
