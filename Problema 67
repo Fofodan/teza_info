@@ -1,0 +1,28 @@
+//67. Scrieti un program C/C++ care citeste de la tastatura un sir de cel mult 50 de caractere
+//(cifre, litere ale alfabetului englez si spatii; sirul contine cel putin o litera), apoi construieste
+//în memorie si afiseaza pe ecran sirul de caractere obtinut din sirul citit prin eliminarea tuturor
+//caracterelor care nu sunt litere.
+//Exemplu: daca se citeste sirul: Voi lua 10 la informatica atunci se va afisa:
+//Voilualainformatica
+
+#include<iostream>
+#include<string.h>
+using namespace std;
+
+int main()
+{char s[50];
+int i;
+cout<<"Scrieti sirul = ";
+cin.getline(s,50);
+for(i=0;s[i];i++)
+{
+    while(s[i]<65||s[i]>122||s[i]>90&&s[i]<97)
+    {
+        strcpy(s+i,s+i+1);
+        s[strlen(s)]=0;
+        cout<<s<<endl;
+    }
+}
+cout<<s;
+    return 0;
+}
