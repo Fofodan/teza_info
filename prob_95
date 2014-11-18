@@ -1,0 +1,40 @@
+/*
+    95. Scrieţi programul C/C++ care citeşte de la tastatură un text cu cel mult 100 de caractere
+(doar litere mici ale alfabetului englez şi spaţii) şi un cuvânt cu cel mult 15 caractere, doar
+litere mici ale alfabetului englez, şi care afişează pe ecran şirul obţinut prin inserarea în
+textul iniţial a caracterului ? după fiecare apariţie a cuvântului citit. Dacă în text nu apare
+cuvântul citit, se va afişa mesajul NU APARE.
+Exemplu: dacă se citeşte de la tastatură textul
+examenului examenul de bacalaureat si examenul de atestat
+şi cuvântul examenul se va afişa:
+examenului examenul? de bacalaureat si examenul? de atestat
+
+*/
+#include <iostream>
+#include <fstream>
+#include <string.h>
+#include <math.h>
+using namespace std;
+main ()
+{
+    char s[100],cuv[15],mat[20][20],*p;
+    int i,j=0,n=0;
+    cin.getline(s,100);
+    cin>>cuv;
+    p=strtok(s," ");
+    while(p)
+    {
+        strcpy(mat[n++],p);
+        p=strtok(NULL," ");
+        n++;
+    }
+    for(i=0;s[i];i++)
+    {
+        if(strcmp(mat[i],cuv)==NULL)
+            mat[i][strlen(mat[i])]='?';
+    }
+    for(i=0;i<n;i++)
+    cout<<mat[i]<<" ";
+
+    return 0;
+}
