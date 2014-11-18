@@ -20,7 +20,6 @@ for(i=0;s[i];i++)
     {
         strcpy(s+i,s+i+1);
         s[strlen(s)]=0;
-        cout<<s<<endl;
     }
 }
 cout<<s;
