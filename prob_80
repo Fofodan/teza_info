@@ -1,0 +1,39 @@
+/*
+    80. Scrieţi programul C/C++ care citeşte de la tastatură un cuvânt format din cel mult 50 de
+caractere, doar litere mari ale alfabetului englez, şi afişează pe ecran, fiecare pe câte o linie,
+toate prefixele acestuia, în ordine crescătoare a lungimilor. Un prefix de lungime k al unui
+cuvânt este un subşir format din primele k caractere ale acestuia. (10p.)
+Exemplu: dacă se citeşte cuvântul BACALAUREAT se vor afişa prefixele:
+B
+BA
+BAC
+BACA
+BACAL
+BACALA
+BACALAU
+BACALAUR
+BACALAURE
+BACALAUREA
+BACALAUREAT
+
+*/
+#include <iostream>
+#include <fstream>
+#include <string.h>
+#include <math.h>
+using namespace std;
+main ()
+{
+    char s[20];
+    int n=0,i;
+    cin>>s;
+    while(n!=strlen(s))
+    {
+        for(i=0;i<=n;i++)
+            cout<<s[i];
+        cout<<endl;
+        n++;
+    }
+
+    return 0;
+}
