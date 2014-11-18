@@ -1,0 +1,30 @@
+/*
+    82. Scrieţi programul C/C++ care citeşte de la tastatură un cuvânt format din cel mult 50
+caractere, doar litere mari ale alfabetului englez, şi afişează pe ecran, fiecare pe câte o linie,
+toate sufixele acestuia, în ordine crescătoare a lungimilor. Un sufix de lungime k al unui
+cuvânt este un subşir format din ultimele k caractere ale acestuia. (10p.)
+Exemplu: dacă se citeşte cuvântul EXAMEN se vor afişa sufixele :
+N
+EN
+MEN
+AMEN
+XAMEN
+EXAMEN
+
+*/
+#include <iostream>
+#include <fstream>
+#include <string.h>
+#include <math.h>
+using namespace std;
+main ()
+{
+
+    char s[100];
+    int i;
+    cin>>s;
+    for(i=strlen(s)-1;i>=0;i--)
+    cout<<s+i<<endl;
+
+    return 0;
+}
