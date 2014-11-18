@@ -11,16 +11,25 @@ using namespace std;
 
 int main()
 {char s[50];
-int i;
+int i,ok;
 cout<<"Scrieti sirul = ";
 cin.getline(s,50);
-for(i=0;s[i];i++)
+
+for(i=0;i<strlen(s);i++)
 {
+    ok=1;
     while(s[i]<65||s[i]>122||s[i]>90&&s[i]<97)
     {
+        if(s[strlen(s)]==s[i])
+        {
+            ok=0;
+            break;
+        }
         strcpy(s+i,s+i+1);
-        s[strlen(s)]=0;
+
     }
+    if(ok==0)
+    s[i]=0;
 }
 cout<<s;
     return 0;
