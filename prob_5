@@ -1,0 +1,32 @@
+/*
+	5. Se consideră un text cu maximum 255 de caractere, format din litere mici ale alfabetului
+englez şi spaţii. Textul conţine cel puţin o consoană. Scrieţi un program C/C++ care citeşte
+de la tastatură textul şi apoi determină transformarea acestuia, eliminând numai ultima
+consoană care apare în text, ca în exemplu. Programul va afişa pe ecran textul obţinut.
+Exemplu: dacă de la tastatură se introduce textul: mare frig saci
+pe ecran se va afişa: mare frig sai
+
+*/
+#include <iostream>
+#include <fstream>
+#include <string.h>
+#include <math.h>
+using namespace std;
+main ()
+{
+    char s[100], cons[]="qwrtypsdfjklmnbvcxzgh";
+    int i,j;
+    cin.getline(s,100);
+
+    for(j=strlen(s)-1;j>0;j--)
+    {
+        if(strchr(cons,s[j])!=NULL)
+        {strcpy(s+j,s+j+1);
+        break;}
+    }
+    cout<<s;
+
+
+
+	return 0;
+}
