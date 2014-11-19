@@ -1,32 +1,32 @@
-/*
-	5. Se consideră un text cu maximum 255 de caractere, format din litere mici ale alfabetului
-englez şi spaţii. Textul conţine cel puţin o consoană. Scrieţi un program C/C++ care citeşte
-de la tastatură textul şi apoi determină transformarea acestuia, eliminând numai ultima
-consoană care apare în text, ca în exemplu. Programul va afişa pe ecran textul obţinut.
-Exemplu: dacă de la tastatură se introduce textul: mare frig saci
-pe ecran se va afişa: mare frig sai
+//5. Se considera un text cu maximum 255 de caractere, format din litere mici ale alfabetului
+//englez si spatii. Textul contine cel putin o consoana. Scrieti un program C/C++ care citette
+//de la tastatura textul di apoi determina transformarea acestuia, eliminând numai ultima
+//consoana care apare în text, ca în exemplu. Programul va afisa pe ecran textul obtinut.
+//Exemplu: daca de la tastatura se introduce textul: mare frig saci
+//pe ecran se va afisa: mare frig sai
 
-*/
-#include <iostream>
-#include <fstream>
-#include <string.h>
-#include <math.h>
+#include<iostream>
+#include<string.h>
 using namespace std;
-main ()
+
+int main()
+{char s[255],c[]="bcdfghjklmnpqrstvwxyz";
+int i,k=0,nrc=0,j;
+cout<<"Scrieti textul = ";
+cin.getline(s,255);
+for(i=0;s[i];i++)
+    if(strchr(c,s[i]))
+        nrc++;
+for(i=0;s[i];i++)
 {
-    char s[100], cons[]="qwrtypsdfjklmnbvcxzgh";
-    int i,j;
-    cin.getline(s,100);
-
-    for(j=strlen(s)-1;j>0;j--)
-    {
-        if(strchr(cons,s[j])!=NULL)
-        {strcpy(s+j,s+j+1);
-        break;}
-    }
-    cout<<s;
-
-
-
-	return 0;
+    if(strchr(c,s[i]))
+        k++;
+    if(k==nrc)
+    for(j=i;s[j];j++)
+        s[j]=s[j+1];
 }
+s[i]=0;
+cout<<s;
+    return 0;
+}
+
