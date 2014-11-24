@@ -1,0 +1,43 @@
+/*
+    117. Tipul de date structurat COLET permite reţinerea a două numere reale, reprezentând
+valoarea exprimată în euro a unui colet poştal, respectiv greutatea exprimată în kilograme,
+şi un şir de caractere reprezentând numele oraşului expeditorului, format din cel mult 30 de
+caractere. Scrieţi în limbajul C/C++ o declarare pentru tipul de date COLET şi o secvenţă de
+instrucţiuni care permite citirea valorilor componentelor variabilei x de tipul COLET. Denumiţi
+sugestiv componentele tipului de date COLET.
+
+*/
+#include <iostream>
+#include <fstream>
+#include <string.h>
+#include <math.h>
+using namespace std;
+struct colet
+{
+    int pret;
+    int greutate;
+    char locatie[30];
+};
+main ()
+{
+    colet c[40];
+    int n,i;
+    cout<<"Cate colete sunt? "<<endl;
+    cin>>n;
+    for(i=0;i<n;i++)
+    {
+        cout<<"pret: ";
+        cin>>c[i].pret;
+        cout<<"greutate: ";
+        cin>>c[i].greutate;
+        cout<<"destinatie: ";
+        cin>>c[i].locatie;
+    }
+    for(i=0;i<n;i++)
+    {
+        cout<<"coletul costa: "<<c[i].pret<<" avand greutatea : "<<c[i].greutate<<" si trebuie sa ajunga in:  "<<c[i].locatie<<endl;
+    }
+
+
+    return 0;
+}
