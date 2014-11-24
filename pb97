@@ -1,0 +1,42 @@
+97. Scrieţi programul C/C++ care citeşte de la tastatură un cuvânt cu cel puţin una şi cel mult 20
+de litere ale alfabetului englez, construieşte şi afişează pe ecran cuvântul obţinut prin
+interschimbarea primei consoane cu ultima vocală din cuvânt. În cazul în care cuvântul este
+format numai din vocale sau numai din consoane, programul afişează pe ecran mesajul
+IMPOSIBIL. Se consideră vocale literele a, e, i, o, u, A, E, I, O, U.
+Exemplu: dacă se citeşte cuvântul Marmorat se va obţine şi afişa cuvântul aarmorMt
+
+*/
+#include <iostream>
+#include <fstream>
+#include <string.h>
+#include <math.h>
+using namespace std;
+main ()
+{
+    char s[100],aux, cons[]="qwrtypsdfjklmnbvcxzgh",voc[]="aeiouAEIOU";
+    int i,j;
+    cin.getline(s,100);
+
+
+        for(j=strlen(s)-1;j>0;j--)
+    {
+        if(strchr(voc,s[j])!=NULL)
+        {
+        break;}
+    }
+    for(i=0;i<strlen(s)-1;i++)
+    {
+        if(strchr(cons,s[i])!=NULL)
+        {
+            break;
+        }
+    }
+    aux=s[i];
+    s[i]=s[j];
+    s[j]=aux;
+
+    cout<<s;
+
+
+    return 0;
+}
