@@ -1,0 +1,36 @@
+/*
+   113. mult 20 de caractere, care reprezintă numele şi prenumele unei persoane. Între nume şi
+prenume se află un număr oarecare de caractere spaţiu (cel puţin unul). Atât numele, cât şi
+prenumele, sunt formate numai din litere mici ale alfabetului englez. Programul construieşte
+în memorie şi afişează pe ecran un alt şir de caractere, care să conţină iniţiala prenumelui
+(prima literă a prenumelui), urmată de un caracter punct, de exact un spaţiu şi de numele
+din şirul citit iniţial. Toate literele din şirul afişat vor fi, de asemenea, litere mici.
+Exemplu: dacă se citeşte şirul:
+popescu vasile
+se va construi şi apoi se va afişa pe ecran şirul
+v. popescu
+
+*/
+#include <iostream>
+#include <fstream>
+#include <string.h>
+#include <math.h>
+using namespace std;
+main ()
+{
+    char s[100],*p,mat[100][100];
+    int i=0;
+    cin.getline(s,20);
+    p=strtok(s," ");
+    while(p)
+    {
+        strcpy(mat[i++],p);
+        p=strtok(NULL," ");
+
+    }
+    cout<<mat[1][0]<<". "<<mat[0];
+
+
+
+    return 0;
+}
