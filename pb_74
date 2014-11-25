@@ -1,0 +1,52 @@
+/*
+74. Scrieţi un program C/C++ care citeşte de la tastatură un text
+de cel mult 255 de caractere,
+dintre care cel puţin unul este o literă mică a alfabetului englez,
+şi afişează pe ecran, pe o singură linie, despărţite prin câte un spaţiu,
+toate literele mici ale alfabetului englez care
+apar în text. Fiecare literă va fi afişată o singură dată, în ordinea primei
+ ei apariţii în text.
+Exemplu: pentru textul:
+Calculati valoarea expresiei
+(10p.)
+Pe ecran se va afişa:
+a l c u t i v o r e x p s
+
+
+*/
+#include<string.h>
+#include<iostream>
+#include<fstream>
+using namespace std;
+void citire(char a[255])
+{
+    cin.getline(a,255);
+}
+void rezolvare(char a[255])
+{
+    char l[30];
+    int m=0,i,j,ok;
+    for(i=0;a[i];i++)
+        if('a'<=a[i]&&a[i]<='z')
+        {
+            ok=1;
+            for(j=0;j<m;j++)
+                if(a[i]==l[j])
+                    ok=0;
+            if(ok==1)
+            {
+                l[m]=a[i];
+                m++;
+            }
+        }
+    for(i=0;i<m;i++)
+        cout<<" "<<l[i];
+}
+int main()
+{
+    char a[255];
+    citire(a);
+    rezolvare(a);
+
+    return 0;
+}
