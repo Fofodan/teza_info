@@ -1,0 +1,111 @@
+/*  Se da un fisier text care contine pe prima linie un nr  nat. n si pe urmatoarele
+    n linii informatii de forma: nume, clasa, nota 1, nota 2
+    1. Sa se afiseze elevii in ordinea descrescastoare a mediilor
+    2. Elevii in ord crescatoare a claselor
+    3. Elevii claselor in ordine alfabetica
+    4. Media generala a fiecarei clase
+    5. Media generala a unei clase care se da de la tastatura
+    6. Pozitia intro anumita clasa a unui elev, ierahia e descrescatore dupa medie
+
+*/
+#include<iostream>  // NU E PERFETA, BUT U GET THE IDEA :)
+#include<string.h>
+#include<fstream>
+
+using namespace std;
+ifstream fin("text.txt");
+struct elevi
+{
+    char nume[30];
+    char clasa[5];
+    int nota1;
+    int nota2;
+    float media;
+};
+void citire(int &n, elevi a[])
+{
+    fin>>n;
+    for(int i=0;i<n;i++)
+    {
+        fin>>a[i].nume>>a[i].clasa>>a[i].nota1>>a[i].nota2;
+        a[i].media=(a[i].nota1+a[i].nota2)/2.0;
+    }
+}
+void ordonaredesc(int n, elevi a[])
+{
+    elevi t;
+    for (int i=0; i<n-1; i++)
+        for (int j=i+1; j<n; j++)
+        {
+            if (a[i].media < a[j].media)
+            {
+                t = a[i];
+                a[i]= a[j];
+                a[j] = t;
+            }
+        }
+}
+void ordclase (elevi a[], int n)
+{
+    int i,j;
+    elevi t;
+    for(i=0;i<n-1;i++)
+        for(j=i+1;j<n;j++)
+        if(strcmp(a[i].clasa,a[j].clasa)>0 ||
+           strcmp(a[i].clasa,a[j].clasa)==0 &&
+           strcmp(a[i].nume,a[j].nume)>0)
+           {
+                t = a[i];
+                a[i]= a[j];
+                a[j] = t;
+           }
+
+}
+void medii(int n, elevi a[])
+{
+    int i=1,k=1;
+    char c[5];
+    strcpy(c,a[0].clasa);
+    float s=a[0].media;
+
+    for(i=1;i<n;i++)
+    {
+        if(strcmp(a[i].clasa,c)==0)
+           {
+               s=s+a[i].media;
+               k++;
+           }
+        else
+           {
+                cout<<"media clasei "<<c<<" "<<s/k<<endl;
+                k=1;
+                s=a[i].media;
+                strcpy(c,a[i].clasa);
+           }
+
+    }
+    cout<<"media clasei "<<c<<" "<<s/k<<endl;;
+
+}
+int main()
+{
+    int n;
+    elevi a[20];
+    citire(n,a);
+    ordonaredesc(n,a);
+    for(int i=0;i<n;i++)
+    {
+        cout<<a[i].nume<<" "<<a[i].clasa<<" "<<a[i].media<<" "<<endl;
+    }
+
+    cout<<"------------------------------------------------------------------------------"<<endl;
+    ordclase(a,n);
+    for(int i=0;i<n;i++)
+    {
+        cout<<a[i].nume<<" "<<a[i].clasa<<" "<<a[i].media<<" "<<endl;
+    }
+    cout<<endl;
+    medii(n,a);
+
+    return 0;
+}
